@@ -4,7 +4,8 @@ At a minimum they should have a title, description, dueDate and priority.
 You might also want to include notes or even a checklist.
 */
 import { createToDo } from "./model/todo.js";
-import { createToDoView } from "./view/todo-view.js";
+import { createProject } from "./model/project.js";
+import { createProjectController } from "./controller/project-controller.js";
 
 const createToDoForm = document.getElementById("create-todo");
 const mainContentView = document.querySelector(".main-content");
@@ -40,12 +41,19 @@ const toDoList = [
   createToDo("Take nap", "I'm sleepy"),
 ];
 
-const renderList = () => {
-  listContainer.innerHTML = "";
-  for (const toDo of toDoList) {
-    createToDoView(toDo.getTitle(), toDo.getDescription()).render(
-      listContainer
-    );
-  }
-};
-renderList();
+// const renderList = () => {
+//   listContainer.innerHTML = "";
+//   for (const toDo of toDoList) {
+//     createToDoView(toDo.getTitle(), toDo.getDescription()).render(
+//       listContainer
+//     );
+//   }
+// };
+// renderList();
+
+// Code along 1.19.24
+const sampleProject = createProjec("sample", toDoList);
+
+const sampleController = createProjectController(sampleProject);
+
+sampleController.render(CONTENT_VIEW);
