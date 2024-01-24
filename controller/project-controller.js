@@ -2,7 +2,7 @@ import { createProjectView } from "../view/project-view.js";
 import { createToDoView } from "../view/todo-view.js";
 
 export function createProjectController(projectModel) {
-  const projectView = createProjectView("yessah");
+  const projectView = createProjectView("Test");
   const toDoViews = [];
 
   for (const todo of projectModel.getItems()) {

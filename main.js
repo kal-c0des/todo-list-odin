@@ -11,7 +11,6 @@ const CONTENT_VIEW = document.querySelector(".main-content");
 const PROJECT_LIST = document.querySelector(".project-list");
 const NEW_PROJECT_FORM = document.querySelector("#create-project");
 
-// const sideBar = document.querySelector(".sidebar");
 const form = document.querySelector("#create-todo");
 const projectBtn = document.querySelector(".project-creator");
 const projectGenerate = document.querySelector(".new-project");
@@ -72,16 +71,6 @@ const toDoList = [
   createToDo("Sell car", "It sucks", 4),
   createToDo("Take nap", "I'm sleepy", 5),
 ];
-
-// const renderList = () => {
-//   listContainer.innerHTML = "";
-//   for (const toDo of toDoList) {
-//     createToDoView(toDo.getTitle(), toDo.getDescription()).render(
-//       listContainer
-//     );
-//   }
-// };
-// renderList();
 
 // Code along 1.19.24
 

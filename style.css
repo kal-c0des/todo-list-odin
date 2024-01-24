@@ -7,6 +7,7 @@ body {
   display: grid;
   font-family: "Victor Mono", monospace;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .screen {
@@ -16,7 +17,7 @@ body {
 }
 
 .sidebar {
-  background-color: rgb(29, 82, 65);
+  background-color: #1d5241;
   width: 100%;
   padding: 20px;
 }
@@ -70,12 +71,35 @@ button.project-creator {
   margin-left: 20px;
 }
 
-.todo-container {
-  border: solid 2px black;
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 8px;
+  margin-right: 8px;
+  gap: 8px;
 }
 
-form {
-  margin: 20px;
+.todo-container {
+  position: inherit;
+  height: 35vh;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #af680a90;
+}
+
+.input-bar {
+  background-color: #1d5241;
+  display: grid;
+  grid-template-columns: 30fr 40fr 30fr;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0px;
+}
+
+label {
+  color: white;
+  font-weight: bold;
 }
 
 .main-content {
@@ -85,7 +109,7 @@ form {
 h1 {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 48px;
 }
 
