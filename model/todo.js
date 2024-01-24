@@ -1,23 +1,22 @@
-export function createToDo(title, description) {
-  const getTitle = () => {
-    return title;
-  };
+export function createToDo(title, description, dueDate) {
   const setTitle = (newTitle) => {
-    if (typeof newTitle !== "string") {
-      throw new Error("Title must be a string");
+    if (typeof newTitle !== "string" && newTitle.trim() === "") {
+      throw new Error("Title must be a valid string");
     }
     title = newTitle;
+  };
+
+  const getTitle = () => {
+    return title;
   };
 
   const getDescription = () => {
     return description;
   };
-  const setDescription = (newDescription) => {
-    if (typeof newDescription !== "string" || newDescription === "") {
-      throw new Error("Description must be a non-empty string");
-    }
-    description = newDescription;
+
+  const getDueDate = () => {
+    return dueDate;
   };
 
-  return { getTitle, setTitle, getDescription, setDescription };
+  return { setTitle, getTitle, getDescription, getDueDate };
 }

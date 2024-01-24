@@ -4,17 +4,86 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <div class="sidebar"></div>
-    <div class="main-content">
-      <form action="" id="create-todo">
-        <input type="text" name="title" />
-        <input type="text" name="description" />
-        <button id="btn-create-todo">Create</button>
-      </form>
-      <div id="list-container"></div>
+    <div class="screen">
+      <div class="sidebar">
+        <div class="side-title">ToDo:</div>
+        <button class="show-filters">Filter List</button>
+        <div class="hide filters">
+          <button class="filter-all">All</button>
+          <button class="filter-today">Today</button>
+          <button class="filter-future">Upcoming</button>
+          <button class="filter-completed">Completed</button>
+        </div>
+        <div class="project-generator">
+          <button class="project-creator">New Project</button>
+          <div class="hide new-project">
+            <form action="" id="create-project">
+              <input
+                type="text"
+                name="project-name"
+                id="proj-name-input"
+                class="project-named"
+              />
+              <input type="submit" value="Create" class="create-project-btn" />
+            </form>
+          </div>
+          <div class="project-list">
+            <h3>Test</h3>
+            <h3>Keep Testing</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <h1>TODO TRACKER</h1>
+        <p class="subtitle">Look at you, getting stuff done!</p>
+        <!-- Create separator img div ? -->
+        <form action="" id="create-todo">
+          <div class="input-bar">
+            <div class="input-field">
+              <label for="title" class="lables">Enter New ToDo Here</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                class="inputs"
+                required
+              />
+            </div>
+            <div class="input-field">
+              <label for="description" class="lables"
+                >Enter Task Description</label
+              >
+              <input
+                type="text"
+                name="description"
+                id="description"
+                class="inputs"
+              />
+            </div>
+            <div class="input-field">
+              <label for="due-date">Due Date:</label>
+              <input
+                type="date"
+                name="due-date"
+                id="due-date"
+                class="inputs"
+                required
+              />
+              <input type="submit" value="Create" class="create-btn" />
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="./main.js" type="module"></script>
   </body>

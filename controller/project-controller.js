@@ -5,7 +5,7 @@ export function createProjectController(projectModel) {
   const projectView = createProjectView("yessah");
   const toDoViews = [];
 
-  for (const todo of projectModel.getItems) {
+  for (const todo of projectModel.getItems()) {
     const toDoView = createToDoView(todo.getTitle(), todo.getDescription());
     toDoViews.push(toDoView);
   }

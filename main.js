@@ -7,38 +7,70 @@ import { createToDo } from "./model/todo.js";
 import { createProject } from "./model/project.js";
 import { createProjectController } from "./controller/project-controller.js";
 
-const createToDoForm = document.getElementById("create-todo");
-const mainContentView = document.querySelector(".main-content");
-const sidebarView = document.querySelector(".sidebar");
-const listContainer = document.querySelector("#list-container");
+const CONTENT_VIEW = document.querySelector(".main-content");
+const PROJECT_LIST = document.querySelector(".project-list");
+const NEW_PROJECT_FORM = document.querySelector("#create-project");
 
-createToDoForm.addEventListener("submit", (e) => {
+// const sideBar = document.querySelector(".sidebar");
+const form = document.querySelector("#create-todo");
+const projectBtn = document.querySelector(".project-creator");
+const projectGenerate = document.querySelector(".new-project");
+const filterVisible = document.querySelector(".show-filters");
+const filterItems = document.querySelector(".filters");
+
+const projects = [];
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const formData = createToDoForm.elements;
 
-  const toDoItem = createToDo(
-    formData["title"].value,
-    formData["description"].value
+  const data = form.elements;
+
+  let newToDoItem = createToDo(
+    data["title"].value,
+    data["description"].value,
+    data["due-date"].value
   );
-
-  toDoList.push(toDoItem);
-  renderList();
+  const itemView = createToDoView(
+    newToDoItem.getTitle(),
+    newToDoItem.getDescription(),
+    newToDoItem.getDueDate()
+  );
+  itemView.render(CONTENT_VIEW);
 });
 
-let toDo1 = createToDo("Eat Pizza", "Veggies for days");
-let toDo2 = createToDo("Drink Coffee", "Just black");
+projectBtn.addEventListener("click", () => {
+  projectGenerate.classList.toggle("show");
+});
 
-// console.log(toDo1);
-// console.log(toDo1.getTitle());
-// toDo1.setDescription("Supreme");
-// console.log(toDo1.getTitle());
+filterVisible.addEventListener("click", () => {
+  filterItems.classList.toggle("show");
+});
+
+NEW_PROJECT_FORM.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = NEW_PROJECT_FORM.elements;
+  const newProjectName = formData["project-name"].value;
+  console.log(newProjectName);
+  const newProject1 = createProject(newProjectName);
+  projects.push(newProject1);
+  console.log(projects);
+  renderProjectList();
+});
+
+function renderProjectList() {
+  for (const project of projects) {
+    const PROJECT_TITLE = document.createElement("h3");
+    PROJECT_TITLE.textContent = project.getName();
+    PROJECT_LIST.append(PROJECT_TITLE);
+  }
+}
 
 const toDoList = [
-  createToDo("Eat Pizza", "Veggies for days"),
-  createToDo("Drink Coffee", "Just black"),
-  createToDo("Wash Dog", "He stinks"),
-  createToDo("Sell car", "It sucks"),
-  createToDo("Take nap", "I'm sleepy"),
+  createToDo("Eat Pizza", "Veggies for days", 1),
+  createToDo("Drink Coffee", "Just black", 2),
+  createToDo("Wash Dog", "He stinks", 3),
+  createToDo("Sell car", "It sucks", 4),
+  createToDo("Take nap", "I'm sleepy", 5),
 ];
 
 // const renderList = () => {
@@ -52,7 +84,8 @@ const toDoList = [
 // renderList();
 
 // Code along 1.19.24
-const sampleProject = createProjec("sample", toDoList);
+
+const sampleProject = createProject("sample", toDoList);
 
 const sampleController = createProjectController(sampleProject);
 

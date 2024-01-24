@@ -1,3 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  font-family: "Victor Mono", monospace;
+  height: 100vh;
+}
+
+.screen {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 100vw;
+}
+
+.sidebar {
+  background-color: rgb(29, 82, 65);
+  width: 100%;
+  padding: 20px;
+}
+
+.side-title {
+  color: white;
+  font-size: 24px;
+}
+
+button,
+.button {
+  font-family: "Victor Mono", monospace;
+  font-weight: bold;
+  background-color: #faebd7;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  border-style: inset;
+  width: 100px;
+  height: 32px;
+}
+
+button:hover,
+.button:hover {
+  background-color: #faebd775;
+}
+
+button.show-filters,
+button.project-creator {
+  background-color: #af680a;
+  margin: 10px 0px;
+}
+
+.create-project-btn,
+.create-btn {
+  font-family: "Victor Mono", monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.filter-all,
+.filter-today,
+.filter-future,
+.filter-completed {
+  margin-left: 20px;
+}
+
 .todo-container {
   border: solid 2px black;
 }
@@ -6,16 +78,28 @@ form {
   margin: 20px;
 }
 
-.sidebar {
-  background-color: rgb(29, 82, 65);
-}
-
 .main-content {
   background-color: rgb(220, 250, 215);
 }
 
-body {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  height: 100vh;
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 48px;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* .hide {
+  display: none;
+} */
+
+.show {
+  display: flex;
 }
